@@ -1,5 +1,6 @@
 import React from "react";
-import { DELETE_USER } from "../constants/UsersConstant";
+
+import { DELETE_USER, ADD_USER } from "../constants/UsersConstant";
 
 const initialState = {
   users: [
@@ -16,6 +17,14 @@ function reducer(state, action) {
     case DELETE_USER:
       return {
         users: state.users.filter((user) => user.id !== action.payload.id),
+      };
+    case ADD_USER:
+      return {
+        users: [...state.users, action.payload],
+      };
+    default:
+      return {
+        users: state.users,
       };
   }
 }
