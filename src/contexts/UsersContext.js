@@ -1,13 +1,9 @@
 import React from "react";
 
-import { DELETE_USER, ADD_USER } from "../constants/UsersConstant";
+import { DELETE_USER, ADD_USER, GET_USERS } from "../constants/UsersConstant";
 
 const initialState = {
-  users: [
-    { name: "Peter", id: 1 },
-    { name: "John", id: 2 },
-    { name: "Jane", id: 3 },
-  ],
+  users: [],
 };
 
 function reducer(state, action) {
@@ -21,6 +17,10 @@ function reducer(state, action) {
     case ADD_USER:
       return {
         users: [...state.users, action.payload],
+      };
+    case GET_USERS:
+      return {
+        users: action.payload,
       };
     default:
       return {
